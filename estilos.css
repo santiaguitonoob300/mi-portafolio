@@ -1,0 +1,132 @@
+/* FONDO GENERAL CON IMAGEN Y DEGRADADO */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(to bottom, #e0eafc, #cfdef3);
+    background-image: url("https://www.transparenttextures.com/patterns/geometry2.png");
+    background-size: cover;
+    background-repeat: repeat;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+/* MODO OSCURO */
+body.oscuro {
+    background: linear-gradient(to bottom, #111, #333);
+    color: #f4f4f4;
+}
+
+body.oscuro section {
+    background-color: #222;
+    color: #f4f4f4;
+}
+
+body.oscuro nav {
+    background-color: #111;
+}
+
+body.oscuro .redes a {
+    background-color: #555;
+}
+
+body.oscuro .redes a:hover {
+    background-color: #777;
+}
+
+/* MENÚ NAVEGACIÓN */
+nav {
+    background-color: #ffffffcc;
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+nav a, nav button {
+    text-decoration: none;
+    color: #0072ff;
+    font-weight: bold;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+nav button:hover, nav a:hover {
+    text-decoration: underline;
+}
+
+/* ENCABEZADO */
+header {
+    text-align: center;
+    padding: 30px 20px;
+}
+
+header img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    border: 3px solid #0072ff;
+}
+
+section {
+    padding: 30px 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* EFECTO DE APARICIÓN */
+.fade-in {
+    animation: aparecer 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes aparecer {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+/* BOTONES DE REDES */
+.redes a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: white;
+    background-color: #0072ff;
+    border-radius: 8px;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.redes a:hover {
+    background-color: #0052cc;
+    transform: scale(1.05);
+}
+
+.redes i {
+    margin-right: 8px;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #eee;
+    font-size: 14px;
+}
+

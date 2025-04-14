@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mis Juegos - Santiago</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="claro">
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="mis_juegos.html">Mis Juegos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><button id="modo-btn">Modo Oscuro</button></li>
+        </ul>
+    </nav>
+
+    <header class="fade-in">
+        <h1>Mis Juegos</h1>
+        <p>Aquí puedes ver algunos de los juegos que he creado hasta ahora.</p>
+    </header>
+
+    <section id="juegos" class="fade-in">
+        <h2>Mis Juegos</h2>
+        <ul>
+            <li>Juego de Adivinanzas</li>
+            <li>Juego de Piedra, Papel o Tijera</li>
+            <li>Juego de Calculadora de Rectángulo</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Santiago</p>
+    </footer>
+
+    <!-- Script para cambiar modo -->
+    <script>
+        const body = document.body;
+        const btn = document.getElementById("modo-btn");
+
+        btn.addEventListener("click", () => {
+            body.classList.toggle("oscuro");
+            body.classList.toggle("claro");
+            btn.innerText = body.classList.contains("oscuro") ? "Modo Claro" : "Modo Oscuro";
+        });
+    </script>
+</body>
+</html>
+<section id="adivinanza" class="fade-in">
+    <h3>Juego de Adivinanzas</h3>
+    <p>Adivina el número que estoy pensando entre 1 y 10.</p>
+    <label for="adivinanza-input">Introduce tu adivinanza: </label>
+    <input type="number" id="adivinanza-input" min="1" max="10">
+    <button onclick="comprobarAdivinanza()">Adivinar</button>
+    <p id="adivinanza-result"></p>
+</section>
+
+<script>
+    let numeroSecreto = Math.floor(Math.random() * 10) + 1;
+
+    function comprobarAdivinanza() {
+        const input = document.getElementById("adivinanza-input").value;
+        const resultado = document.getElementById("adivinanza-result");
+
+        if (input == numeroSecreto) {
+            resultado.textContent = "¡Correcto! Has adivinado el número.";
+            resultado.style.color = "green";
+        } else {
+            resultado.textContent = "¡Incorrecto! Intenta de nuevo.";
+            resultado.style.color = "red";
+        }
+    }
+</script>
+<section id="piedra-papel-tijera" class="fade-in">
+    <h3>Juego de Piedra, Papel o Tijera</h3>
+    <p>Escoge Piedra, Papel o Tijera y ve si ganas o pierdes.</p>
+    <label for="eleccion">Elige: </label>
+    <select id="eleccion">
+        <option value="piedra">Piedra</option>
+        <option value="papel">Papel</option>
+        <option value="tijera">Tijera</option>
+    </select>
+    <button onclick="jugar()">Jugar</button>
+    <p id="resultado-juego"></p>
+</section>
+
+<script>
+    function jugar() {
+        const usuario = document.getElementById("eleccion").value;
+        const opciones = ["piedra", "papel", "tijera"];
+        const computadora = opciones[Math.floor(Math.random() * 3)];
+
+        let resultado = "";
+
+        if (usuario === computadora) {
+            resultado = "Empate, intenten de nuevo.";
+        } else if (
+            (usuario === "piedra" && computadora === "tijera") ||
+            (usuario === "papel" && computadora === "piedra") ||
+            (usuario === "tijera" && computadora === "papel")
+        ) {
+            resultado = `¡Ganaste! La computadora eligió ${computadora}.`;
+        } else {
+            resultado = `¡Perdiste! La computadora eligió ${computadora}.`;
+        }
+
+        document.getElementById("resultado-juego").textContent = resultado;
+    }
+</script>

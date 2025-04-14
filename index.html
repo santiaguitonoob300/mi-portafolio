@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Portfolio de Santiago</title>
+    <link rel="stylesheet" href="estilos.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body class="claro">
+    <!-- Menú de navegación -->
+    <nav>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="mis_juegos.html">Mis Juegos</a></li>
+            <li><a href="#contacto">Dónde encontrarme</a></li>
+            <li><button id="modo-btn">Modo Oscuro</button></li>
+        </ul>
+    </nav>
+
+    <header class="fade-in">
+        <img src="https://i.pravatar.cc/100" alt="Foto de perfil">
+        <h1>Santiago</h1>
+        <p>Desarrollador en formación | Creativo y curioso</p>
+    </header>
+
+    <section id="sobre-mi" class="fade-in">
+        <h2>Sobre mí</h2>
+        <p>Hola, soy Santiago y estoy aprendiendo a crear páginas web visuales, juegos en Python y a construir cosas increíbles desde cero.</p>
+    </section>
+
+    <section id="proyectos" class="fade-in">
+        <h2>Mis Proyectos</h2>
+        <ul>
+            <li>Calculadora de Rectángulo en Python</li>
+            <li>Juego Piedra, Papel o Tijera</li>
+            <li>Tarjeta Personal Web</li>
+        </ul>
+    </section>
+
+    <section id="contacto" class="fade-in">
+        <h2>¿Dónde encontrarme?</h2>
+        <p>Puedes encontrarme en las siguientes plataformas:</p>
+        <div class="redes">
+            <a href="https://instagram.com/san.tiago0820" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="mailto:agudelosantiago.inedan@gmail.com">
+                <i class="fas fa-envelope"></i> Correo electrónico
+            </a>
+            <a href="https://github.com/santiagoagudelo" target="_blank">
+                <i class="fab fa-github"></i> GitHub
+            </a>
+        </div>
+        <h3>Escríbeme</h3>
+        <form action="mailto:agudelosantiago.inedan@gmail.com" method="POST" enctype="text/plain">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Santiago</p>
+    </footer>
+
+    <!-- Script para cambiar modo -->
+    <script>
+        const body = document.body;
+        const btn = document.getElementById("modo-btn");
+
+        btn.addEventListener("click", () => {
+            body.classList.toggle("oscuro");
+            body.classList.toggle("claro");
+            btn.innerText = body.classList.contains("oscuro") ? "Modo Claro" : "Modo Oscuro";
+        });
+    </script>
+</body>
+</html>
